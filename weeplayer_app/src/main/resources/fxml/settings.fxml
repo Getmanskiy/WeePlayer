@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="549.0" prefWidth="733.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.getmansky.SettingsWindow">
+   <children>
+      <VBox layoutX="14.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="304.0" prefWidth="460.0" AnchorPane.bottomAnchor="82.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="259.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="33.0" prefWidth="327.0">
+               <children>
+                  <Label minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="%storage_path" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="storagePathText" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="260.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="2.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button mnemonicParsing="false" onAction="#setStoragePath" text="...">
+                     <HBox.margin>
+                        <Insets top="2.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="33.0" prefWidth="327.0">
+               <children>
+                  <CheckBox fx:id="traySetting" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="300.0" text="%hide_to_tray_when_minimized" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </CheckBox>
+               </children>
+            </HBox>
+            <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="33.0" prefWidth="327.0">
+               <children>
+                  <CheckBox fx:id="trayMessages" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="300.0" text="%tray_messages" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </CheckBox>
+               </children>
+            </HBox>
+            <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="33.0" prefWidth="327.0">
+               <children>
+                  <Label alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefWidth="460.0" text="%hotkeys" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="327.0" VBox.vgrow="NEVER">
+               <children>
+                  <Label minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="F" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label maxHeight="-Infinity" minWidth="-Infinity" text="%scroll_to_current_track" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Label>
+               </children>
+            </HBox>
+            <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="327.0" VBox.vgrow="NEVER">
+               <children>
+                  <Label minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="F4" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label maxHeight="-Infinity" minWidth="-Infinity" text="%toggle_numpad_keys" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Label>
+               </children>
+            </HBox>
+            <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="33.0" prefWidth="327.0" VBox.vgrow="NEVER">
+               <children>
+                  <Label minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="F5" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label maxHeight="-Infinity" minWidth="-Infinity" text="%synchronize_playlists" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Label>
+               </children>
+            </HBox>
+            <Label alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="460.0" text="%global_hotkeys" VBox.vgrow="NEVER">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="327.0">
+               <children>
+                  <TextField fx:id="keyDeleteAndPlayNext" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="Numpad 1" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label alignment="BOTTOM_LEFT" maxHeight="-Infinity" minWidth="-Infinity" text="%global_delete_and_play_next" HBox.hgrow="NEVER">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="327.0" VBox.vgrow="NEVER">
+               <children>
+                  <TextField fx:id="keyAddToRemembered" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label alignment="BOTTOM_LEFT" maxHeight="-Infinity" minWidth="-Infinity" text="%add_to_remembered_playlist" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding></Label>
+               </children>
+            </HBox>
+            <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="327.0" VBox.vgrow="NEVER">
+               <children>
+                  <TextField fx:id="keyPlayPause" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="Numpad 5" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label alignment="BOTTOM_LEFT" maxHeight="-Infinity" minWidth="-Infinity" text="%global_play_pause" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding></Label>
+               </children>
+            </HBox>
+            <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="327.0">
+               <children>
+                  <TextField fx:id="keyPlayRandom" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="Numpad 6" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label alignment="BOTTOM_LEFT" maxHeight="-Infinity" minWidth="-Infinity" text="%global_random" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="327.0">
+               <children>
+                  <TextField fx:id="keyPlayPrev" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label alignment="BOTTOM_LEFT" maxHeight="-Infinity" minWidth="-Infinity" text="%global_prev" HBox.hgrow="NEVER">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="327.0">
+               <children>
+                  <TextField fx:id="keyDecVolume" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="Numpad 2" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label alignment="BOTTOM_LEFT" maxHeight="-Infinity" minWidth="-Infinity" text="%global_dec_volume" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="327.0">
+               <children>
+                  <TextField fx:id="keyIncVolume" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" text="Numpad 8" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label alignment="BOTTOM_LEFT" maxHeight="-Infinity" minWidth="-Infinity" text="%global_dec_volume" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="33.0" prefWidth="327.0">
+               <children>
+                  <Button fx:id="applyButton" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#apply" prefWidth="150.0" text="%save">
+                     <HBox.margin>
+                        <Insets left="160.0" top="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

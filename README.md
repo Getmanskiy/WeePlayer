@@ -1,7 +1,7 @@
 Аудио-проигрыватель, разработанный с использованием JavaFX.
 
 **Установка**
-- Для запуска требуется [последняя версия Java](https://www.java.com/ru/download/)
+- [Установить последнюю версию Java](https://www.java.com/ru/download/)
 - [Скачать WeePlayer](https://github.com/Getmansky/WeePlayer/releases)
 
 **Особенности**

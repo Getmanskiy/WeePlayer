@@ -13,7 +13,6 @@
 - На данный момент поддерживает только формат MP3
 
 ![alt tag](http://i.imgur.com/OBEbIvr.png)
-![alt tag](http://i.imgur.com/RLoqYv5.png)
 
 **Дисклеймер**
 

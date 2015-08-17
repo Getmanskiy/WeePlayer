@@ -12,8 +12,8 @@
 - Информация о треках читается из ID3-тегов, если возможно.
 - На данный момент поддерживает только формат MP3
 
-![alt tag](http://i.imgur.com/IhplI6j.png)
-![alt tag](http://i.imgur.com/mPdRYrU.png)
+![alt tag](http://i.imgur.com/OBEbIvr.png)
+![alt tag](http://i.imgur.com/RLoqYv5.png)
 
 **Дисклеймер**
 

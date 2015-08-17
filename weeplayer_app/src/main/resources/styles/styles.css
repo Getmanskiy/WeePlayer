@@ -31,8 +31,11 @@
 }
 
 .table-row-cell:filled:selected {
-   //-fx-background-color: #0099FF;
    -fx-background-color: linear-gradient(#568BFF, #446DCE);
+}
+
+.table-row-cell .text {
+   -fx-fill: black;
 }
 
 .table-row-cell:selected .text {

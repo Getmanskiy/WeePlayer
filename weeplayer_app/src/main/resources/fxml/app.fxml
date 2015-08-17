@@ -93,7 +93,10 @@
       </GridPane>
       <HBox fx:id="playerBox" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="stateButton" alignment="CENTER" graphicTextGap="0.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggleState" prefHeight="40.0" prefWidth="61.0" HBox.hgrow="NEVER" />
+            <Button fx:id="stateButton" alignment="CENTER" graphicTextGap="0.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggleState" prefHeight="40.0" prefWidth="61.0" HBox.hgrow="NEVER">
+               <HBox.margin>
+                  <Insets left="2.0" />
+               </HBox.margin></Button>
             <VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="41.0" prefWidth="563.0" HBox.hgrow="ALWAYS">
                <padding>
                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />

@@ -604,23 +604,22 @@ public class AppController implements Initializable {
    }
    
    void increaseVolume() {
-      if(player == null) return;
-      double newVolume = player.getVolume() + 0.05;
-      if(newVolume > 1.0) newVolume = 1.0;
-      player.setVolume(newVolume);
+      if (player == null) return;
+      double newVolume = Settings.currentVolume + 0.05;
+      
+      if (newVolume > 1.0) newVolume = 1.0;
       Settings.currentVolume = newVolume;
+      player.setVolume(newVolume);
       volumeSlider.setValue(newVolume);
    }
    
    void decreaseVolume() {
-      if(player == null) return;
-      double newVolume = player.getVolume() - 0.05;
+      if (player == null) return;
+      double newVolume = Settings.currentVolume - 0.05;
       
-      if (newVolume < 0.0) {
-         newVolume = 0.0;
-      }
-      player.setVolume(newVolume);
+      if (newVolume < 0.0) newVolume = 0.0;
       Settings.currentVolume = newVolume;
+      player.setVolume(newVolume);
       volumeSlider.setValue(newVolume);
    }
    

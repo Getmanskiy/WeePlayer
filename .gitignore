@@ -1,2 +1,5 @@
 /SwingLogAppender/target/
 /vk-api/target/
+.idea
+*.iml
+logs

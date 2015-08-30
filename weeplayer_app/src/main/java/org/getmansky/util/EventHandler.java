@@ -17,9 +17,8 @@
 package org.getmansky.util;
 
 /**
- *
  * @author getmansky
  */
 public interface EventHandler<T> {
-   public void handle(T t);
+    public void handle(T t);
 }

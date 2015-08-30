@@ -2,159 +2,194 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.getmansky.AppController">
-  <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints maxHeight="300.0" minHeight="50.0" prefHeight="41.0" valignment="TOP" vgrow="NEVER" />
-    <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="328.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="NEVER" />
-  </rowConstraints>
-   <children>
-      <GridPane GridPane.rowIndex="1">
-        <columnConstraints>
-            <ColumnConstraints fillWidth="false" hgrow="NEVER" maxWidth="300.0" minWidth="0.0" prefWidth="300.0" />
-          <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="408.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <VBox GridPane.hgrow="NEVER">
-               <children>
-                  <HBox maxWidth="-Infinity" minWidth="-Infinity" prefWidth="290.0">
-                     <children>
-                        <Button fx:id="refreshButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#refreshPlaylists" prefHeight="25.0" prefWidth="60.0" VBox.vgrow="NEVER">
-                           <VBox.margin>
-                              <Insets bottom="5.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button fx:id="addButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0">
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button fx:id="renameButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0">
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button fx:id="deleteButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0">
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <TableView fx:id="playlistsView" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="359.0" prefWidth="290.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" VBox.vgrow="ALWAYS">
-                     <VBox.margin>
-                        <Insets bottom="5.0" top="6.0" />
-                     </VBox.margin></TableView>
-               </children>
-               <padding>
-                  <Insets left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </VBox>
-            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
-               <children>
-                  <HBox maxHeight="-Infinity" prefHeight="36.0" prefWidth="408.0">
-                     <children>
-                        <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="%search">
-                           <HBox.margin>
-                              <Insets left="5.0" top="5.0" />
-                           </HBox.margin>
-                        </Label>
-                        <TextField fx:id="searchText" maxWidth="1.7976931348623157E308" onAction="#search" prefHeight="25.0" prefWidth="285.0" promptText="%find_tracks" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets left="5.0" />
-                           </HBox.margin>
-                        </TextField>
-                        <Button fx:id="searchButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#search" text="%search">
-                           <HBox.margin>
-                              <Insets left="5.0" />
-                           </HBox.margin>
-                        </Button>
-                     </children>
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                  </HBox>
-                  <TableView fx:id="tracksView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onKeyPressed="#playTrackFromKeyboard" onMouseClicked="#tracksViewMouseClicked" prefHeight="284.0" prefWidth="408.0" VBox.vgrow="ALWAYS">
-                     <VBox.margin>
-                        <Insets bottom="5.0" right="5.0" />
-                     </VBox.margin></TableView>
-               </children>
-            </VBox>
-         </children>
-      </GridPane>
-      <HBox fx:id="playerBox" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Button fx:id="stateButton" alignment="CENTER" graphicTextGap="0.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggleState" prefHeight="40.0" prefWidth="61.0" HBox.hgrow="NEVER">
-               <HBox.margin>
-                  <Insets left="2.0" />
-               </HBox.margin></Button>
-            <VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="41.0" prefWidth="563.0" HBox.hgrow="ALWAYS">
-               <padding>
-                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets left="3.0" />
-               </HBox.margin>
-               <children>
-                  <HBox>
-                     <children>
-                        <Label fx:id="titleLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="431.0" text="WeePlayer" HBox.hgrow="ALWAYS" />
-                        <Label fx:id="timeLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="90.0" text="0:00 / 0:00" HBox.hgrow="SOMETIMES" />
-                     </children>
-                  </HBox>
-                  <ProgressBar fx:id="loadProgressBar" maxWidth="1.7976931348623157E308" onMouseClicked="#seek" prefHeight="18.0" prefWidth="395.0" progress="0.0" />
-               </children>
-            </VBox>
-            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="41.0" prefWidth="87.0" HBox.hgrow="NEVER">
-               <children>
-                  <Label fx:id="volumeLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="85.0" text="50%" textAlignment="CENTER" />
-                  <Slider fx:id="volumeSlider" blockIncrement="1.0" max="1.0" value="0.5" />
-               </children>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </VBox>
-            <ChoiceBox fx:id="modeList" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="100.0" HBox.hgrow="NEVER">
-               <HBox.margin>
-                  <Insets right="2.0" top="10.0" />
-               </HBox.margin>
-            </ChoiceBox>
-         </children>
-         <padding>
-            <Insets bottom="10.0" left="3.0" right="3.0" top="3.0" />
-         </padding>
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-      </HBox>
-      <HBox fx:id="footerBox" maxHeight="40.0" minHeight="-Infinity" prefHeight="40.0" GridPane.rowIndex="2">
-         <children>
-            <Label fx:id="infoLabel" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="100000.0" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets left="5.0" right="5.0" />
-               </GridPane.margin>
-               <HBox.margin>
-                  <Insets left="3.0" top="5.0" />
-               </HBox.margin>
-            </Label>
-            <Button fx:id="settingsButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showSettings" prefHeight="25.0" prefWidth="50.0" HBox.hgrow="NEVER">
-               <HBox.margin>
-                  <Insets right="2.0" top="2.0" />
-               </HBox.margin>
-            </Button>
-         </children>
-         <padding>
-            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-         </padding>
-      </HBox>
-   </children>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+          prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8"
+          fx:controller="org.getmansky.AppController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="300.0" minHeight="50.0" prefHeight="41.0" valignment="TOP" vgrow="NEVER"/>
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="328.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="NEVER"/>
+    </rowConstraints>
+    <children>
+        <GridPane GridPane.rowIndex="1">
+            <columnConstraints>
+                <ColumnConstraints fillWidth="false" hgrow="NEVER" maxWidth="300.0" minWidth="0.0" prefWidth="300.0"/>
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="408.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <VBox GridPane.hgrow="NEVER">
+                    <children>
+                        <HBox maxWidth="-Infinity" minWidth="-Infinity" prefWidth="290.0">
+                            <children>
+                                <Button fx:id="refreshButton" maxHeight="-Infinity" maxWidth="-Infinity"
+                                        minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                                        onAction="#refreshPlaylists" prefHeight="25.0" prefWidth="60.0"
+                                        VBox.vgrow="NEVER">
+                                    <VBox.margin>
+                                        <Insets bottom="5.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="addButton" maxHeight="-Infinity" maxWidth="-Infinity"
+                                        minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                                        prefHeight="25.0" prefWidth="60.0">
+                                    <HBox.margin>
+                                        <Insets left="10.0"/>
+                                    </HBox.margin>
+                                </Button>
+                                <Button fx:id="renameButton" maxHeight="-Infinity" maxWidth="-Infinity"
+                                        minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                                        prefHeight="25.0" prefWidth="60.0">
+                                    <HBox.margin>
+                                        <Insets left="10.0"/>
+                                    </HBox.margin>
+                                </Button>
+                                <Button fx:id="deleteButton" maxHeight="-Infinity" maxWidth="-Infinity"
+                                        minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                                        prefHeight="25.0" prefWidth="60.0">
+                                    <HBox.margin>
+                                        <Insets left="10.0"/>
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <TableView fx:id="playlistsView" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="359.0"
+                                   prefWidth="290.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER"
+                                   VBox.vgrow="ALWAYS">
+                            <VBox.margin>
+                                <Insets bottom="5.0" top="6.0"/>
+                            </VBox.margin>
+                        </TableView>
+                    </children>
+                    <padding>
+                        <Insets left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                </VBox>
+                <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1"
+                      GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                    <children>
+                        <HBox maxHeight="-Infinity" prefHeight="36.0" prefWidth="408.0">
+                            <children>
+                                <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                                       minWidth="-Infinity" text="%search">
+                                    <HBox.margin>
+                                        <Insets left="5.0" top="5.0"/>
+                                    </HBox.margin>
+                                </Label>
+                                <TextField fx:id="searchText" maxWidth="1.7976931348623157E308" onAction="#search"
+                                           prefHeight="25.0" prefWidth="285.0" promptText="%find_tracks"
+                                           HBox.hgrow="ALWAYS">
+                                    <HBox.margin>
+                                        <Insets left="5.0"/>
+                                    </HBox.margin>
+                                </TextField>
+                                <Button fx:id="searchButton" maxHeight="-Infinity" maxWidth="-Infinity"
+                                        minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                                        onAction="#search" text="%search">
+                                    <HBox.margin>
+                                        <Insets left="5.0"/>
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                            <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </padding>
+                        </HBox>
+                        <TableView fx:id="tracksView" maxHeight="1.7976931348623157E308"
+                                   maxWidth="1.7976931348623157E308" onKeyPressed="#playTrackFromKeyboard"
+                                   onMouseClicked="#tracksViewMouseClicked" prefHeight="284.0" prefWidth="408.0"
+                                   VBox.vgrow="ALWAYS">
+                            <VBox.margin>
+                                <Insets bottom="5.0" right="5.0"/>
+                            </VBox.margin>
+                        </TableView>
+                    </children>
+                </VBox>
+            </children>
+        </GridPane>
+        <HBox fx:id="playerBox" prefHeight="100.0" prefWidth="200.0">
+            <children>
+                <Button fx:id="stateButton" alignment="CENTER" graphicTextGap="0.0" maxHeight="-Infinity"
+                        maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                        onAction="#toggleState" prefHeight="40.0" prefWidth="61.0" HBox.hgrow="NEVER">
+                    <HBox.margin>
+                        <Insets left="2.0"/>
+                    </HBox.margin>
+                </Button>
+                <VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="41.0" prefWidth="563.0"
+                      HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0"/>
+                    </padding>
+                    <HBox.margin>
+                        <Insets left="3.0"/>
+                    </HBox.margin>
+                    <children>
+                        <HBox>
+                            <children>
+                                <Label fx:id="titleLabel" alignment="CENTER" maxWidth="1.7976931348623157E308"
+                                       prefHeight="17.0" prefWidth="431.0" text="WeePlayer" HBox.hgrow="ALWAYS"/>
+                                <Label fx:id="timeLabel" alignment="CENTER" maxWidth="1.7976931348623157E308"
+                                       minWidth="-Infinity" prefWidth="90.0" text="0:00 / 0:00" HBox.hgrow="SOMETIMES"/>
+                            </children>
+                        </HBox>
+                        <ProgressBar fx:id="loadProgressBar" maxWidth="1.7976931348623157E308" onMouseClicked="#seek"
+                                     prefHeight="18.0" prefWidth="395.0" progress="0.0"/>
+                    </children>
+                </VBox>
+                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                      prefHeight="41.0" prefWidth="87.0" HBox.hgrow="NEVER">
+                    <children>
+                        <Label fx:id="volumeLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0"
+                               prefWidth="85.0" text="50%" textAlignment="CENTER"/>
+                        <Slider fx:id="volumeSlider" blockIncrement="1.0" max="1.0" value="0.5"/>
+                    </children>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                </VBox>
+                <ChoiceBox fx:id="modeList" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                           minWidth="-Infinity" prefWidth="100.0" HBox.hgrow="NEVER">
+                    <HBox.margin>
+                        <Insets right="2.0" top="10.0"/>
+                    </HBox.margin>
+                </ChoiceBox>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="3.0" right="3.0" top="3.0"/>
+            </padding>
+            <GridPane.margin>
+                <Insets/>
+            </GridPane.margin>
+        </HBox>
+        <HBox fx:id="footerBox" maxHeight="40.0" minHeight="-Infinity" prefHeight="40.0" GridPane.rowIndex="2">
+            <children>
+                <Label fx:id="infoLabel" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="100000.0"
+                       GridPane.rowIndex="2">
+                    <GridPane.margin>
+                        <Insets left="5.0" right="5.0"/>
+                    </GridPane.margin>
+                    <HBox.margin>
+                        <Insets left="3.0" top="5.0"/>
+                    </HBox.margin>
+                </Label>
+                <Button fx:id="settingsButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                        minWidth="-Infinity" mnemonicParsing="false" onAction="#showSettings" prefHeight="25.0"
+                        prefWidth="50.0" HBox.hgrow="NEVER">
+                    <HBox.margin>
+                        <Insets right="2.0" top="2.0"/>
+                    </HBox.margin>
+                </Button>
+            </children>
+            <padding>
+                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0"/>
+            </padding>
+        </HBox>
+    </children>
 </GridPane>

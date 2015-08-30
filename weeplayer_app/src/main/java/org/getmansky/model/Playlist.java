@@ -21,77 +21,76 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- *
  * @author OlegusGetman
  */
 public class Playlist implements Serializable {
-   private String id;
-   private String title;
-   private List<Track> tracks;
-   private Boolean offline = false;
+    private String id;
+    private String title;
+    private List<Track> tracks;
+    private Boolean offline = false;
 
-   public Integer getCount() {
-      return tracks.size();
-   }
-   
-   public String getTitle() {
-      return title;
-   }
+    public Integer getCount() {
+        return tracks.size();
+    }
 
-   public void setTitle(String title) {
-      this.title = title;
-   }
+    public String getTitle() {
+        return title;
+    }
 
-   public List<Track> getTracks() {
-      return tracks;
-   }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-   public void setTracks(List<Track> tracks) {
-      this.tracks = tracks;
-   }
+    public List<Track> getTracks() {
+        return tracks;
+    }
 
-   public String getId() {
-      return id;
-   }
+    public void setTracks(List<Track> tracks) {
+        this.tracks = tracks;
+    }
 
-   public void setId(String id) {
-      this.id = id;
-   }
+    public String getId() {
+        return id;
+    }
 
-   public Boolean getOffline() {
-      return offline;
-   }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-   public void setOffline(Boolean offline) {
-      this.offline = offline;
-   }
-   
-   @Override
-   public String toString() {
-      return title;
-   }
+    public Boolean getOffline() {
+        return offline;
+    }
 
-   @Override
-   public int hashCode() {
-      int hash = 5;
-      hash = 23 * hash + Objects.hashCode(this.id);
-      return hash;
-   }
+    public void setOffline(Boolean offline) {
+        this.offline = offline;
+    }
 
-   @Override
-   public boolean equals(Object obj) {
-      if (obj == null) {
-         return false;
-      }
-      if (getClass() != obj.getClass()) {
-         return false;
-      }
-      final Playlist other = (Playlist) obj;
-      if (!Objects.equals(this.id, other.id)) {
-         return false;
-      }
-      return true;
-   }
-   
-   
+    @Override
+    public String toString() {
+        return title;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 23 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Playlist other = (Playlist) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
+
+
 }

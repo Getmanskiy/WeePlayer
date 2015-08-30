@@ -1,76 +1,76 @@
 .root {
-   -fx-accent: #568BFF;
-   -fx-focus-color: #568BFF;
-   -fx-background-color: rgb(240,240,240);
+    -fx-accent: #568BFF;
+    -fx-focus-color: #568BFF;
+    -fx-background-color: rgb(240, 240, 240);
 }
 
 #playerBox {
-   -fx-background-color: linear-gradient(white, rgb(240,240,240));
+    -fx-background-color: linear-gradient(white, rgb(240, 240, 240));
 }
 
 #footerBox {
-   -fx-background-color: linear-gradient(rgb(240,240,240), white);
+    -fx-background-color: linear-gradient(rgb(240, 240, 240), white);
 }
 
 #infoLabel {
-   -fx-text-fill: blue;
+    -fx-text-fill: blue;
 }
 
 * {
-   -fx-background-radius: 0,0,0;
-   -fx-font-family: Verdana, Arial, sans-serif;
-   -fx-font-size: 12px;
+    -fx-background-radius: 0, 0, 0;
+    -fx-font-family: Verdana, Arial, sans-serif;
+    -fx-font-size: 12px;
 }
 
 .slider .thumb {
-   -fx-background-radius: 15,15,15;
+    -fx-background-radius: 15, 15, 15;
 }
 
 .table-row-cell:odd {
-   -fx-background-color: rgba(205,205,205,0.35);
+    -fx-background-color: rgba(205, 205, 205, 0.35);
 }
 
 .table-row-cell:filled:selected {
-   -fx-background-color: linear-gradient(#568BFF, #446DCE);
+    -fx-background-color: linear-gradient(#568BFF, #446DCE);
 }
 
 .table-row-cell .text {
-   -fx-fill: black;
+    -fx-fill: black;
 }
 
 .table-row-cell:selected .text {
-   -fx-fill: white;
+    -fx-fill: white;
 }
 
 .table-row-cell:empty {
-   -fx-background-color: rgba(205,205,205,0.25);
+    -fx-background-color: rgba(205, 205, 205, 0.25);
 }
 
 .table-cell {
-   -fx-border-width: 0;
-   -fx-padding: 0 8 0 5;
+    -fx-border-width: 0;
+    -fx-padding: 0 8 0 5;
 }
 
 .button {
-   -fx-background-radius: 0,0,0;
-   -fx-background-insets: 0,1,2;
-   -fx-text-fill: black;
+    -fx-background-radius: 0, 0, 0;
+    -fx-background-insets: 0, 1, 2;
+    -fx-text-fill: black;
 }
 
 .text-field {
-   -fx-background-radius: 0,0,0;
-   -fx-background-insets: 0,1,2;
+    -fx-background-radius: 0, 0, 0;
+    -fx-background-insets: 0, 1, 2;
 }
 
 .check-box:active {
-   -fx-background-radius: 0,0,0;
-   -fx-background-insets: 0,1,2;
+    -fx-background-radius: 0, 0, 0;
+    -fx-background-insets: 0, 1, 2;
 }
 
 .text-layout-right {
-   -fx-alignment: center-right;
+    -fx-alignment: center-right;
 }
 
 .text-layout-center {
-   -fx-alignment: center;
+    -fx-alignment: center;
 }

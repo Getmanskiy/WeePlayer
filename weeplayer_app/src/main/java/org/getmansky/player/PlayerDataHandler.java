@@ -20,9 +20,8 @@ import org.getmansky.model.Playlist;
 import org.getmansky.model.Track;
 
 /**
- *
  * @author getmansky
  */
 public interface PlayerDataHandler {
-   public void handle(Playlist playlist, Track track);
+    public void handle(Playlist playlist, Track track);
 }

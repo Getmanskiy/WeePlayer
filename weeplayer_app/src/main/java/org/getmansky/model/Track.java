@@ -20,78 +20,77 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- *
  * @author OlegusGetman
  */
 public class Track implements Serializable {
-   
-   private String id;
-   private String title;
-   private Boolean offline = false;
-   private Double duration = 0d;
 
-   public String getId() {
-      return id;
-   }
+    private String id;
+    private String title;
+    private Boolean offline = false;
+    private Double duration = 0d;
 
-   public void setId(String id) {
-      this.id = id;
-   }
+    public String getId() {
+        return id;
+    }
 
-   public String getTitle() {
-      return title;
-   }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-   public void setTitle(String title) {
-      this.title = title;
-   }
+    public String getTitle() {
+        return title;
+    }
 
-   public Boolean getOffline() {
-      return offline;
-   }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-   public void setOffline(Boolean offline) {
-      this.offline = offline;
-   }
+    public Boolean getOffline() {
+        return offline;
+    }
 
-   public Double getDuration() {
-      return duration;
-   }
-   
-   public String getDurationFormatted() {
-      int min = (int) (duration / 1000 / 60);
-      int sec = (int) (duration / 1000 % 60);
-      return String.format("%01d:%02d", min, sec);
-   }
+    public void setOffline(Boolean offline) {
+        this.offline = offline;
+    }
 
-   public void setDuration(Double duration) {
-      this.duration = duration;
-   }
+    public Double getDuration() {
+        return duration;
+    }
 
-   @Override
-   public String toString() {
-      return title;
-   }
+    public void setDuration(Double duration) {
+        this.duration = duration;
+    }
 
-   @Override
-   public int hashCode() {
-      int hash = 7;
-      hash = 13 * hash + Objects.hashCode(this.id);
-      return hash;
-   }
+    public String getDurationFormatted() {
+        int min = (int) (duration / 1000 / 60);
+        int sec = (int) (duration / 1000 % 60);
+        return String.format("%01d:%02d", min, sec);
+    }
 
-   @Override
-   public boolean equals(Object obj) {
-      if (obj == null) {
-         return false;
-      }
-      if (getClass() != obj.getClass()) {
-         return false;
-      }
-      final Track other = (Track) obj;
-      if (!Objects.equals(this.id, other.id)) {
-         return false;
-      }
-      return true;
-   }
+    @Override
+    public String toString() {
+        return title;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 13 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Track other = (Track) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
 }

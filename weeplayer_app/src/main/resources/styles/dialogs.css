@@ -1,13 +1,13 @@
 .root {
-   -fx-accent: #568BFF;
-   -fx-focus-color: #568BFF;
-   -fx-background-color: rgb(240,240,240);
+    -fx-accent: #568BFF;
+    -fx-focus-color: #568BFF;
+    -fx-background-color: rgb(240, 240, 240);
 }
 
 * {
-   -fx-background-radius: 0,0,0;
-   -fx-font-family: "Verdana";
-   -fx-font-size: 12px;
+    -fx-background-radius: 0, 0, 0;
+    -fx-font-family: "Verdana";
+    -fx-font-size: 12px;
 }
 
 /*.list-cell:odd {
@@ -15,7 +15,7 @@
 }*/
 
 .list-cell:filled:focused:not(selected) {
-   /*-fx-background-color: #0099FF;*/
-   -fx-background-color: linear-gradient(#568BFF, #446DCE);
-   -fx-text-fill: white;
+    /*-fx-background-color: #0099FF;*/
+    -fx-background-color: linear-gradient(#568BFF, #446DCE);
+    -fx-text-fill: white;
 }

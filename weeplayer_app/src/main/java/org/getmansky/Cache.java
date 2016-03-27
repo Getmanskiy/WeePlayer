@@ -16,6 +16,7 @@
  */
 package org.getmansky;
 
+import com.google.gson.Gson;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Level;
@@ -48,28 +49,7 @@ public class Cache {
     private final static String PLAYLISTS_PATH = "/playlists/";
     private final static String TRACKS_PATH = "/tracks/";
     private final static Logger log = Logger.getLogger(Cache.class);
-   
-   /*static {
-      List<Playlist> playlists = playlists();
-      final AtomicInteger cur = new AtomicInteger(0);
-      final AtomicInteger cnt = new AtomicInteger(0);
-      playlists.forEach(p -> { cnt.addAndGet(p.getTracks().size()); });
-      playlists.forEach(playlist -> playlist.getTracks().forEach(track -> {
-	 try {
-	    AudioFileFormat fileFormat = AudioSystem.getAudioFileFormat(getContent(track));
-	    Map<?, ?> properties = ((TAudioFileFormat) fileFormat).properties();
-	    String title = (String) properties.get("title");
-	    String author = (String) properties.get("author");
-	    if(StringUtils.isNotBlank(title) && StringUtils.isNotBlank(author)) {
-	       track.setTitle(author + " — " + title);
-	       log.info("["+cur.incrementAndGet() + " / " + cnt.get() + "] " + author + " — " + title);
-	    }
-	 } catch (UnsupportedAudioFileException | IOException ex) {
-	    log.fatal(ex, ex);
-	 }
-      }));
-      savePlaylists(playlists);
-   }*/
+
     public static List<Playlist> cachedPlaylists;
 
     private static String getNameFromTags(File file) {
@@ -115,6 +95,12 @@ public class Cache {
                 output.flush();
             }
 
+            Gson gson = new Gson();
+            String json = gson.toJson(playlists);
+            FileWriter writer = new FileWriter(Settings.storagePath + PLAYLISTS_PATH + "list.json");
+            writer.write(json);
+            writer.close();
+
         } catch (FileNotFoundException ex) {
             log.log(Level.ERROR, null, ex);
         } catch (IOException ex) {
@@ -137,9 +123,7 @@ public class Cache {
                 List<Playlist> playlists = null;
                 try (FSTObjectInput input = new FSTObjectInput(new BufferedInputStream(new FileInputStream(cachedFile)))) {
                     playlists = (List<Playlist>) input.readObject();
-                    playlists = playlists.stream().sorted((pl1, pl2) -> {
-                        return pl1.getTitle().compareTo(pl2.getTitle());
-                    }).collect(Collectors.toList());
+                    playlists = playlists.stream().sorted((pl1, pl2) -> pl1.getTitle().compareTo(pl2.getTitle())).collect(Collectors.toList());
 
                 } catch (IOException ex) {
                     log.log(Level.ERROR, null, ex);

@@ -145,7 +145,7 @@ public class Cache {
     public static Playlist createPlaylist(String title) {
         Playlist p = new Playlist();
         p.setTitle(title);
-        p.setId("offline-" + new Date());
+        p.setId("offline-" + System.currentTimeMillis());
         p.setOffline(Boolean.TRUE);
         p.setTracks(new ArrayList<>());
 

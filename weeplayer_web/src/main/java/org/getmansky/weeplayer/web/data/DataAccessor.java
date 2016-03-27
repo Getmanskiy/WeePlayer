@@ -3,6 +3,7 @@ package org.getmansky.weeplayer.web.data;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.getmansky.model.Playlist;
+import org.getmansky.model.Track;
 import org.getmansky.weeplayer.web.Application;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,11 +13,14 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -30,7 +34,7 @@ public class DataAccessor {
 
     private static final Logger log = LoggerFactory.getLogger(DataAccessor.class);
 
-    private List<Playlist> fetchedPlaylists;
+    private Map<String, Playlist> fetchedPlaylists;
     private List<Playlist> playlistsNoContent = new ArrayList<>();
 
     @PostConstruct
@@ -43,9 +47,20 @@ public class DataAccessor {
 
     private void refreshState() {
         log.info("Refreshing state");
-        fetchedPlaylists = fetchPlaylists();
+        List<Playlist> playlists = fetchPlaylists();
+        fetchedPlaylists = new HashMap<>();
+        playlists.forEach(playlist -> {
+            List<Track> invertedTracks = new ArrayList<>();
+            for(int i = playlist.getTracks().size() - 1; i >= 0; i--) {
+                invertedTracks.add(playlist.getTracks().get(i));
+            }
+            playlist.setTracks(invertedTracks);
+            fetchedPlaylists.put(playlist.getId(), playlist);
+        });
         playlistsNoContent.clear();
-        fetchedPlaylists.forEach((Playlist fetchedPlaylist) -> {
+        fetchedPlaylists.values().stream()
+                .sorted((pl1, pl2) -> pl1.getTitle().compareTo(pl2.getTitle()))
+                .forEach((Playlist fetchedPlaylist) -> {
             Playlist playlist = new Playlist();
             playlist.setId(fetchedPlaylist.getId());
             playlist.setTitle(fetchedPlaylist.getTitle());
@@ -66,7 +81,11 @@ public class DataAccessor {
         }
     }
 
-    public List<Playlist> getFetchedPlaylists() {
+    public Playlist getPlaylist(String id) {
+        return fetchedPlaylists.get(id);
+    }
+
+    public Map<String, Playlist> getFetchedPlaylists() {
         return fetchedPlaylists;
     }
 

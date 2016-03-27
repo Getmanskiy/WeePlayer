@@ -1,3 +1,12 @@
 <div class="base">
-    this is {{pageName}} :3
+    <div id="home-playlists">
+        <div ng-repeat="playlist in playlists">
+            <button ng-click="selectPlaylist(playlist.id)">{{playlist.title}}</button>
+        </div>
+    </div>
+    <div id="home-tracklist">
+        <div ng-repeat="track in currentPlaylist.tracks">
+            {{track.title}}
+        </div>
+    </div>
 </div>

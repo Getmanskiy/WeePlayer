@@ -6,7 +6,7 @@
     </div>
     <div id="home-tracklist">
         <div ng-repeat="track in currentPlaylist.tracks">
-            {{track.title}}
+            <a href="api/tracks/{{track.id}}">{{track.title}}</a>
         </div>
     </div>
 </div>

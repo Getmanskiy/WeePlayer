@@ -11,5 +11,6 @@
       <module>jkeymaster</module>
       <module>SwingLogAppender</module>
       <module>weeplayer_app</module>
+      <module>weeplayer_web</module>
    </modules>
 </project>

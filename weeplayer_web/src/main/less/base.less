@@ -1,11 +1,12 @@
 html {
   //background-image: url(../image/background.jpg);
   background: no-repeat fixed;
+  overflow-x: hidden;
 }
 
 .base {
-  padding: 20px;
   width: 100%;
+  padding-top: 50px;
 }
 
 #content {
@@ -13,26 +14,34 @@ html {
   margin: 0 auto;
 }
 
+button:focus {
+  outline:0;
+}
+
 .button-playlist {
   font-family: arial;
   font-weight: bold;
   color: #F7F7F7 !important;
   font-size: 14px;
-  box-shadow: 1px 1px 1px #BEE2F9;
   padding: 5px 25px;
-  border: 2px solid #3866A3;
   background: #63B8EE;
   width: 250px;
   margin-bottom: 10px;
+  border-radius: 50px;
+  border: none;
+}
+
+.button-playlist-hover {
+  color: #14396A !important;
+  background: #468CCF;
+  background: linear-gradient(top, #468CCF, #63B8EE);
+  background: -ms-linear-gradient(top, #468CCF, #63B8EE);
+  background: -webkit-gradient(linear, left top, left bottom, from(#468CCF), to(#63B8EE));
+  background: -moz-linear-gradient(top, #468CCF, #63B8EE);
 }
 
 .button-playlist:hover {
-  color: #14396A !important;
-  background: #468CCF;
-  background: linear-gradient(top,  #468CCF,  #63B8EE);
-  background: -ms-linear-gradient(top,  #468CCF,  #63B8EE);
-  background: -webkit-gradient(linear, left top, left bottom, from(#468CCF), to(#63B8EE));
-  background: -moz-linear-gradient(top,  #468CCF,  #63B8EE);
+  .button-playlist-hover;
 }
 
 .button-playlist-current {
@@ -40,16 +49,26 @@ html {
 }
 
 #home-playlists {
-  background-color: #f1f2ed;
+  //background-color: #f1f2ed;
   display: inline-block;
   float: left;
   padding: 5px;
 }
 
 #home-tracklist {
-  background-color: #f1f2ed;
+  //background-color: #f1f2ed;
   width: 630px;
   float: right;
+}
+
+#button-load-more {
+  .button-playlist;
+  margin: 10px auto;
+  display: block;
+}
+
+#button-load-more:hover {
+  .button-playlist-hover;
 }
 
 .track-item {

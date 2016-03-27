@@ -8,9 +8,12 @@
             </div>
         </div>
         <div id="home-tracklist">
-            <div ng-repeat="track in currentPlaylist.tracks">
-                <div ng-include="'layouts/track_item.html'"/>
+            <div>
+                <div ng-repeat="track in currentPlaylist.tracks">
+                    <div ng-include="'layouts/track_item.html?1'"/>
+                </div>
             </div>
+            <button id="button-load-more" ng-click="tryLoadMoreTracks()" ng-show="currentPlaylist && !currentPlaylist.isFull">Подгрузить еще</button>
         </div>
     </div>
 </div>

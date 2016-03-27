@@ -17,10 +17,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -81,8 +78,22 @@ public class DataAccessor {
         }
     }
 
-    public Playlist getPlaylist(String id) {
-        return fetchedPlaylists.get(id);
+    public Playlist getPlaylist(String id, Integer offset) {
+        Playlist playlist = fetchedPlaylists.get(id);
+        List<Track> tracks = playlist.getTracks();
+        Playlist result = new Playlist();
+        result.setId(id);
+        result.setTitle(playlist.getTitle());
+        result.setTracks(safeSublist(tracks, offset, 150));
+        return result;
+    }
+
+    private static <T> List<T> safeSublist(List<T> list, int offset, int size) {
+        if(offset > list.size()) return Collections.emptyList();
+        if(offset + size > list.size()) {
+            size = list.size() - offset;
+        }
+        return list.subList(offset, offset + size);
     }
 
     public Map<String, Playlist> getFetchedPlaylists() {

@@ -35,9 +35,9 @@ public class ApiController {
         return dataAccessor.getPlaylistsNoContent();
     }
 
-    @RequestMapping("/playlists/{id}")
-    public Playlist playlist(@PathVariable String id) {
-        return dataAccessor.getPlaylist(id);
+    @RequestMapping("/playlists/{id}/{offset}")
+    public Playlist playlist(@PathVariable String id, @PathVariable Integer offset) {
+        return dataAccessor.getPlaylist(id, offset);
     }
 
     @RequestMapping("/tracks/{id}")

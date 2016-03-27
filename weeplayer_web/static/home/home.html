@@ -1,12 +1,16 @@
 <div class="base">
-    <div id="home-playlists">
-        <div ng-repeat="playlist in playlists">
-            <button ng-click="selectPlaylist(playlist.id)">{{playlist.title}}</button>
+    <div id="content">
+        <div id="home-playlists">
+            <div ng-repeat="playlist in playlists">
+                <button ng-click="selectPlaylist(playlist.id)" class="button-playlist {{playlist.id == currentPlaylist.id ? 'button-playlist-current' : ''}}">
+                    {{playlist.title}}
+                </button>
+            </div>
         </div>
-    </div>
-    <div id="home-tracklist">
-        <div ng-repeat="track in currentPlaylist.tracks">
-            <a href="api/tracks/{{track.id}}">{{track.title}}</a>
+        <div id="home-tracklist">
+            <div ng-repeat="track in currentPlaylist.tracks">
+                <div ng-include="'layouts/track_item.html'"/>
+            </div>
         </div>
     </div>
 </div>

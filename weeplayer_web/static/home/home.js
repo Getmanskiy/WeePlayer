@@ -4,7 +4,6 @@ function HomeController($scope, $http) {
         $http.get("api/playlists/" + playlistId)
             .then(function(response) {
                 $scope.currentPlaylist = response.data;
-                console.log($scope.currentPlaylist)
             });
     };
 

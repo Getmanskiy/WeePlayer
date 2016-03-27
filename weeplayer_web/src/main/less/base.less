@@ -1,13 +1,57 @@
+html {
+  //background-image: url(../image/background.jpg);
+  background: no-repeat fixed;
+}
+
 .base {
   padding: 20px;
+  width: 100%;
+}
+
+#content {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.button-playlist {
+  font-family: arial;
+  font-weight: bold;
+  color: #F7F7F7 !important;
+  font-size: 14px;
+  box-shadow: 1px 1px 1px #BEE2F9;
+  padding: 5px 25px;
+  border: 2px solid #3866A3;
+  background: #63B8EE;
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+.button-playlist:hover {
+  color: #14396A !important;
+  background: #468CCF;
+  background: linear-gradient(top,  #468CCF,  #63B8EE);
+  background: -ms-linear-gradient(top,  #468CCF,  #63B8EE);
+  background: -webkit-gradient(linear, left top, left bottom, from(#468CCF), to(#63B8EE));
+  background: -moz-linear-gradient(top,  #468CCF,  #63B8EE);
+}
+
+.button-playlist-current {
+  color: #14396A !important;
 }
 
 #home-playlists {
+  background-color: #f1f2ed;
   display: inline-block;
-  width: 300px;
   float: left;
+  padding: 5px;
 }
 
 #home-tracklist {
+  background-color: #f1f2ed;
+  width: 630px;
   float: right;
+}
+
+.track-item {
+  padding: 5px;
 }

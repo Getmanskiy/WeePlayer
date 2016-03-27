@@ -30,7 +30,9 @@ public class Playlist implements Serializable {
     private Boolean offline = false;
 
     public Integer getCount() {
-        return tracks.size();
+        if(tracks != null)
+            return tracks.size();
+        return -1;
     }
 
     public String getTitle() {

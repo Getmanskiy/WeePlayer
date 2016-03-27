@@ -1,17 +1,25 @@
 package org.getmansky.weeplayer.web.controller;
 
+import org.getmansky.model.Playlist;
+import org.getmansky.weeplayer.web.data.DataAccessor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * Created by getmansky on 10.03.2016.
  */
 @RestController
-@RequestMapping("api")
+@RequestMapping("/api")
 public class ApiController {
 
-    @RequestMapping("/hi")
-    public String hi() {
-        return "hi";
+    @Autowired
+    private DataAccessor dataAccessor;
+
+    @RequestMapping("/playlists")
+    public List<Playlist> playlists() {
+        return dataAccessor.getPlaylistsNoContent();
     }
 }

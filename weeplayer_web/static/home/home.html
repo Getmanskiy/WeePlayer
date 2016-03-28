@@ -10,7 +10,7 @@
         <div id="home-tracklist">
             <div>
                 <div ng-repeat="track in currentPlaylist.tracks">
-                    <div ng-include="'layouts/track_item.html?1'"/>
+                    <div ng-include="'layouts/track_item.html?Math.random()'"/>
                 </div>
             </div>
             <button id="button-load-more" ng-click="tryLoadMoreTracks()" ng-show="currentPlaylist && !currentPlaylist.isFull">Подгрузить еще</button>

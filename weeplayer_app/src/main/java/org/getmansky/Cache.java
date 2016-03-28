@@ -32,6 +32,7 @@ import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.*;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
@@ -97,8 +98,8 @@ public class Cache {
 
             Gson gson = new Gson();
             String json = gson.toJson(playlists);
-            FileWriter writer = new FileWriter(Settings.storagePath + PLAYLISTS_PATH + "list.json");
-            writer.write(json);
+            FileOutputStream writer = new FileOutputStream(Settings.storagePath + PLAYLISTS_PATH + "list.json");
+            writer.write(json.getBytes("UTF-8"));
             writer.close();
 
         } catch (FileNotFoundException ex) {

@@ -1,5 +1,13 @@
 <div class="base">
     <div id="content">
+        <div id="controls">
+            <div id="controls-title">
+                {{currentTrack ? currentTrack.title : 'Выберите трек'}}
+            </div>
+            <div id="controls-buttons" ng-show="currentTrack">
+                <button class="button-audio-control" ng-click="playPause()">{{soundFile.playing ? 'Пауза' : 'Продолжить'}}</button>
+            </div>
+        </div>
         <div id="home-playlists">
             <div ng-repeat="playlist in playlists">
                 <button ng-click="selectPlaylist(playlist.id)" class="button-playlist {{playlist.id == currentPlaylist.id ? 'button-playlist-current' : ''}}">
